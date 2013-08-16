@@ -1,0 +1,24 @@
+
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: telecenter_development
+  pool: 5
+  username: telecenter
+  password: telecenter
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: telecenter_test
+  pool: 5
+  username: telecenter
+  password: telecenter
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: telecenter_production
+  pool: 5
+  username: telecenter
+  password:
