@@ -1,5 +1,6 @@
 Telecenter::Application.routes.draw do
   resources :callcenters
+  root :to => 'callcenters#index'
 
 
   # The priority is based upon order of creation:
