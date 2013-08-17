@@ -3,4 +3,5 @@ class Callcenter < ActiveRecord::Base
   validates :name, :presence => true
   validates :name, :uniqueness => true
   validates :priority, :inclusion => 1..6
+  has_many :outsidenumbers
 end

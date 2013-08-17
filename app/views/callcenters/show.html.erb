@@ -18,3 +18,15 @@
 
 <%= link_to 'Edit', edit_callcenter_path(@callcenter) %> |
 <%= link_to 'Back', callcenters_path %>
+
+ <div id="outsidenumbers">
+         <%= render :partial => @callcenter.outsidenumbers %>
+ </div>
+
+<%= form_for [@callcenter, Outsidenumber.new] do |f| %>
+        <p>
+                <%= f.label :dn, "New DN" %><br/>
+                <%= f.text_field :dn %>
+        </p>
+        <p><%= f.submit "Add DN" %></p>
+<% end %>
