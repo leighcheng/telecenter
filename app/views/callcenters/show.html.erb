@@ -23,7 +23,7 @@
          <%= render :partial => @callcenter.outsidenumbers %>
  </div>
 
-<%= form_for [@callcenter, Outsidenumber.new] do |f| %>
+<%= form_for [@callcenter, Outsidenumber.new], :remote => true do |f| %>
         <p>
                 <%= f.label :dn, "New DN" %><br/>
                 <%= f.text_field :dn %>
