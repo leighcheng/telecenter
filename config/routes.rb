@@ -2,6 +2,7 @@ Telecenter::Application.routes.draw do
 
 
 
+
   resources :callcenters do
   	resources :outsidenumbers, :only => [:create, :edit, :delete]
   end
