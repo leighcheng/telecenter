@@ -3,6 +3,12 @@ class OutsidenumbersController < ApplicationController
   	@callcenter = Callcenter.find(params[:callcenter_id])
   	@outsidenumber = @callcenter.outsidenumbers.create!(params[:outsidenumber])
   	redirect_to @callcenter
-  	
-  end
+	
+  	rescue ActiveRecord::RecordInvalid
+  	  if not params[:outsidenumber]["dn"].empty?
+  	    flash[:notice] = params[:outsidenumber]["dn"] + ' has been taken!'
+  	  end
+      redirect_to @callcenter
+    end
 end
+
