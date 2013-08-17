@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130816234236) do
+ActiveRecord::Schema.define(:version => 20130817224844) do
 
   create_table "callcenters", :force => true do |t|
     t.string   "name"
@@ -20,6 +20,15 @@ ActiveRecord::Schema.define(:version => 20130816234236) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  create_table "cdns", :force => true do |t|
+    t.integer  "callcenter_id"
+    t.string   "extension"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  add_index "cdns", ["callcenter_id"], :name => "index_cdns_on_callcenter_id"
 
   create_table "outsidenumbers", :force => true do |t|
     t.integer  "callcenter_id"

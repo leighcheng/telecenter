@@ -22,6 +22,10 @@
  <div id="outsidenumbers">
          <%= render :partial => @callcenter.outsidenumbers %>
  </div>
+ 
+ <div id="cdns">
+         <%= render :partial => @callcenter.cdns %>
+ </div>
 
 <%= form_for [@callcenter, Outsidenumber.new], :remote => true do |f| %>
         <p>
@@ -29,4 +33,12 @@
                 <%= f.text_field :dn %>
         </p>
         <p><%= f.submit "Add DN" %></p>
+<% end %>
+
+<%= form_for [@callcenter, Cdn.new], :remote => true do |f| %>
+        <p>
+                <%= f.label :extension, "New CDN" %><br/>
+                <%= f.text_field :extension %>
+        </p>
+        <p><%= f.submit "Add CDN" %></p>
 <% end %>

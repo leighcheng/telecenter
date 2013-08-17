@@ -1,0 +1,23 @@
+class CdnsController < ApplicationController
+  def create
+  	@callcenter = Callcenter.find(params[:callcenter_id])
+  	@cdn = @callcenter.cdns.create!(params[:cdn])
+  	respond_to do |format|
+      format.html { redirect_to @callcenter }
+      format.js
+    end
+     
+    rescue ActiveRecord::RecordInvalid
+  	  if not params[:cdn]["extension"] == ""
+	  	  if not params[:cdn]["extension"].match /^\d{4}$/
+	  	    flash[:notice] = params[:cdn]["extension"] + ' is not correct format 9999!'  
+	  	    format.js { render :js=>'alert("bad format");' }	  	
+	  	  else
+	  	    flash[:notice] = params[:cdn]["extension"] + ' has been taken!'
+	  	    format.js { render :js=>'alert("number taken");' }	
+	  	  end
+  	   end
+       redirect_to @callcenter 
+      
+    end
+end
