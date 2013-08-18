@@ -1,44 +1,41 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Name:</b>
-  <%= @callcenter.name %>
-</p>
+<table border="0" cellspacing="5" cellpadding="5">
+	<tr>
+		<th>Name</th>
+		<th>Priority</th>
+		<th>Networked</th>		
+		<th>DN</th>	
+		<th>CDN</th>	
+	</tr>
+	<tr>
+		<td><%= @callcenter.name %></td>
+		<td><%= @callcenter.priority %></td>		
+		<td><%= @callcenter.networked %></td>	
+		<td><div id="outsidenumbers"><%= render :partial => @callcenter.outsidenumbers %></div</td>	
+		<td><div id="cdns"><%= render :partial => @callcenter.cdns %></div></td>	
+	</tr>
+	<tr>
+		<td><%= link_to 'Edit', edit_callcenter_path(@callcenter) %></td>
+		<td><%= "" %></td>		
+		<td><%= link_to 'Back', callcenters_path %></td>		
+	</tr>
+</table>
 
-<p>
-  <b>Priority:</b>
-  <%= @callcenter.priority %>
-</p>
-
-<p>
-  <b>Networked:</b>
-  <%= @callcenter.networked %>
-</p>
-
-
-<%= link_to 'Edit', edit_callcenter_path(@callcenter) %> |
-<%= link_to 'Back', callcenters_path %>
-
- <div id="outsidenumbers">
-         <%= render :partial => @callcenter.outsidenumbers %>
- </div>
- 
- <div id="cdns">
-         <%= render :partial => @callcenter.cdns %>
- </div>
-
-<%= form_for [@callcenter, Outsidenumber.new], :remote => true do |f| %>
-        <p>
-                <%= f.label :dn, "New DN" %><br/>
+<table border="0" cellspacing="5" cellpadding="5">
+	<tr>
+	 <td>
+	 	<%= form_for [@callcenter, Outsidenumber.new], :remote => true do |f| %>
                 <%= f.text_field :dn %>
-        </p>
-        <p><%= f.submit "Add DN" %></p>
-<% end %>
-
-<%= form_for [@callcenter, Cdn.new], :remote => true do |f| %>
-        <p>
-                <%= f.label :extension, "New CDN" %><br/>
+                <%= f.submit "Add DN" %>
+         <% end %>
+        </td>
+		<td>
+			<%= form_for [@callcenter, Cdn.new], :remote => true do |f| %>
                 <%= f.text_field :extension %>
-        </p>
-        <p><%= f.submit "Add CDN" %></p>
-<% end %>
+                 <%= f.submit "Add CDN" %>
+            <% end %>
+        </td>		
+	</tr>
+</table>
+
