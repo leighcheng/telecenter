@@ -1,12 +1,17 @@
 Telecenter::Application.routes.draw do
 
   resources :callcenters do
-  	resources :outsidenumbers, :only => [:create, :edit, :delete]
-  	resources :cdns, :only => [:create, :edit, :delete]
-  end
+  	resources :outsidenumbers, :only => [:create, :edit, :delete, :index]
+  	resources :cdns, :only => [:create, :edit, :delete, :index]
+  end 
+  
+  resources :cdns
   
   root :to => 'callcenters#index'
-  match 'about/index'
+  match 'about/index'  
+  
+  
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

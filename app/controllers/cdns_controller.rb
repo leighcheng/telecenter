@@ -1,4 +1,24 @@
 class CdnsController < ApplicationController
+
+  def index
+    @cdns = Cdn.where("callcenter_id = ?", params[:callcenter_id])
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @cdns }
+    end
+  end
+  
+  def destroy
+    @cdn = Cdn.find(params[:id])
+    @cdn.destroy
+
+    respond_to do |format|
+      format.html { redirect_to cdns_url }
+      format.json { head :no_content }
+    end
+  end
+  
   def create
   	@callcenter = Callcenter.find(params[:callcenter_id])
   	@cdn = @callcenter.cdns.create!(params[:cdn])
