@@ -9,7 +9,7 @@
 <% @cdns.each do |cdn| %>
   <tr>
     <td><%= cdn.extension %></td>
-    <td><%= link_to 'Destroy', cdn, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to 'Destroy', cdn, method: :delete, :remote => true, :class => 'delete_cdn', data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>

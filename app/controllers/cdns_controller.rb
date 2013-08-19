@@ -16,6 +16,7 @@ class CdnsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to cdns_url }
       format.json { head :no_content }
+      format.js   { render :layout => false }
     end
   end
   
