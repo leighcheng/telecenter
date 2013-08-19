@@ -1,4 +1,25 @@
 class OutsidenumbersController < ApplicationController
+	
+  def index
+    @outsidenumbers = Outsidenumber.where("callcenter_id = ?", params[:callcenter_id])
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @outsidenumbers }
+    end
+  end
+  
+  def destroy
+    @outsidenumber = Outsidenumber.find(params[:id])
+    @outsidenumber.destroy
+
+    respond_to do |format|
+      format.html { redirect_to outsidenumbers_url }
+      format.json { head :no_content }
+      format.js   { render :layout => false }
+    end
+  end
+  
   def create
   	@callcenter = Callcenter.find(params[:callcenter_id])
   	@outsidenumber = @callcenter.outsidenumbers.create!(params[:outsidenumber])

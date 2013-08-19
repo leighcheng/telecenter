@@ -5,7 +5,7 @@
 		<th>Name</th>
 		<th>Priority</th>
 		<th>Networked</th>		
-		<th>DN</th>	
+		<th><%= link_to 'DN', callcenter_outsidenumbers_path(@callcenter.id) %></th>	
 		<th><%= link_to 'CDN', callcenter_cdns_path(@callcenter.id) %></th>	
 	</tr>
 	<tr>

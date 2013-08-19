@@ -6,7 +6,8 @@ Telecenter::Application.routes.draw do
   end 
   
   resources :cdns
-  
+  resources :outsidenumbers
+      
   root :to => 'callcenters#index'
   match 'about/index'  
   
