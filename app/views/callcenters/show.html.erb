@@ -40,7 +40,7 @@
         </td>  
 		<td>
 			<%= form_for [@callcenter, CallcenterMsg.new], :remote => true do |f| %>
-                <%= f.text_field :msg_code %>
+                <%= f.collection_select :msg_code, Msg.all, :code, :code %>
                  <%= f.submit "Add MSG" %>
             <% end %>
         </td>  	

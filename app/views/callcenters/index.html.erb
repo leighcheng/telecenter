@@ -15,9 +15,9 @@
     <td><%= callcenter.name %></td>
     <td><%= callcenter.priority %></td>
     <td><%= callcenter.networked %></td>
-    <td><%= link_to 'Show', callcenter %></td>
+    <td><%= link_to 'Detail', callcenter %></td>
     <td><%= link_to 'Edit', edit_callcenter_path(callcenter) %></td>
-    <td><%= link_to 'Destroy', callcenter, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to 'Delete', callcenter, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>
