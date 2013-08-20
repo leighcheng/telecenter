@@ -6,8 +6,6 @@
     <th>Priority</th>
     <th>Networked</th>
     <th></th>
-    <th></th>
-    <th></th>
   </tr>
 
 <% @callcenters.each do |callcenter| %>
@@ -15,9 +13,7 @@
     <td><%= callcenter.name %></td>
     <td><%= callcenter.priority %></td>
     <td><%= callcenter.networked %></td>
-    <td><%= link_to 'Detail', callcenter %></td>
-    <td><%= link_to 'Edit', edit_callcenter_path(callcenter) %></td>
-    <td><%= link_to 'Delete', callcenter, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to 'Detail', callcenter %></td>    
   </tr>
 <% end %>
 </table>
