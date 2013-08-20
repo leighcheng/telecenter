@@ -9,7 +9,7 @@ class CallcenterMsgsController < ApplicationController
   end
   
   def destroy
-    @callcenter_msg = Callcenter_msg.find(params[:id])
+    @callcenter_msg = CallcenterMsg.find(params[:id])
     @callcenter_msg.destroy
 
     respond_to do |format|
