@@ -1,12 +1,17 @@
 Telecenter::Application.routes.draw do
 
+  resources :msgs
+
+
   resources :callcenters do
   	resources :outsidenumbers, :only => [:create, :edit, :delete, :index]
-  	resources :cdns, :only => [:create, :edit, :delete, :index]
+  	resources :cdns, :only => [:create, :edit, :delete, :index]  
+  	resources :callcenter_msgs, :only => [:create, :edit, :delete, :index]      
   end 
   
   resources :cdns
-  resources :outsidenumbers
+  resources :outsidenumbers   
+  resources :callcenter_msgs
       
   root :to => 'callcenters#index'
   match 'about/index'  

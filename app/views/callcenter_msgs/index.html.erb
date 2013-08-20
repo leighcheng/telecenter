@@ -1,0 +1,18 @@
+<h5>Listing MSG for </h5>
+
+<table>
+  <tr>
+    <th>MSG Code</th>
+    <th></th>
+  </tr>
+
+<% @callcenter_msgs.each do |callcenter_msg| %>
+  <tr>
+    <td><%= callcenter_msg.msg_code %></td>
+    <td><%= link_to 'Destroy', callcenter_msg, method: :delete, :remote => true, :class => 'delete_callcenter_msg', data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+

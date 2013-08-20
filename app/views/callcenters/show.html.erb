@@ -6,14 +6,16 @@
 		<th>Priority</th>
 		<th>Networked</th>		
 		<th><%= link_to 'DN', callcenter_outsidenumbers_path(@callcenter.id) %></th>	
-		<th><%= link_to 'CDN', callcenter_cdns_path(@callcenter.id) %></th>	
+		<th><%= link_to 'CDN', callcenter_cdns_path(@callcenter.id) %></th>	     
+		<th><%= link_to 'MSG', callcenter_callcenter_msgs_path(@callcenter.id) %></th>	  
 	</tr>
 	<tr>
 		<td><%= @callcenter.name %></td>
 		<td><%= @callcenter.priority %></td>		
 		<td><%= @callcenter.networked %></td>	
 		<td><div id="outsidenumbers"><%= render :partial => @callcenter.outsidenumbers %></div</td>	
-		<td><div id="cdns"><%= render :partial => @callcenter.cdns %></div></td>	
+		<td><div id="cdns"><%= render :partial => @callcenter.cdns %></div></td>   
+		<td><div id="callcenter_msgs"><%= render :partial => @callcenter.callcenter_msgs %></div></td>    
 	</tr>
 	<tr>
 		<td><%= link_to 'Edit', edit_callcenter_path(@callcenter) %></td>
@@ -35,7 +37,13 @@
                 <%= f.text_field :extension %>
                  <%= f.submit "Add CDN" %>
             <% end %>
-        </td>		
+        </td>  
+		<td>
+			<%= form_for [@callcenter, CallcenterMsg.new], :remote => true do |f| %>
+                <%= f.text_field :msg_code %>
+                 <%= f.submit "Add MSG" %>
+            <% end %>
+        </td>  	
 	</tr>
 </table>
 

@@ -1,0 +1,3 @@
+$('.delete_callcenter_msg').bind('ajax:success', function() {  
+        $(this).closest('tr').fadeOut();
+});  

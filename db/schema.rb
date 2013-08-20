@@ -11,7 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130817224844) do
+ActiveRecord::Schema.define(:version => 20130820060733) do
+
+  create_table "callcenter_msgs", :force => true do |t|
+    t.integer  "callcenter_id"
+    t.string   "msg_code"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  add_index "callcenter_msgs", ["callcenter_id"], :name => "index_callcenter_msgs_on_callcenter_id"
 
   create_table "callcenters", :force => true do |t|
     t.string   "name"
@@ -29,6 +38,13 @@ ActiveRecord::Schema.define(:version => 20130817224844) do
   end
 
   add_index "cdns", ["callcenter_id"], :name => "index_cdns_on_callcenter_id"
+
+  create_table "msgs", :force => true do |t|
+    t.string   "code"
+    t.text     "txt"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "outsidenumbers", :force => true do |t|
     t.integer  "callcenter_id"
