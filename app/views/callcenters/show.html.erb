@@ -2,9 +2,9 @@
 
 <table border="0" cellspacing="5" cellpadding="5">
 	<tr>
-		<th>Name</th>
-		<th>Priority</th>
-		<th>Networked</th>		
+		<th><%=link_to 'Name', edit_callcenter_path(@callcenter) %></th>
+		<th><%=link_to 'Priority', edit_callcenter_path(@callcenter) %></th>
+		<th><%=link_to 'Networked', edit_callcenter_path(@callcenter) %></th>		
 		<th><%= link_to 'DN', callcenter_outsidenumbers_path(@callcenter.id) %></th>	
 		<th><%= link_to 'CDN', callcenter_cdns_path(@callcenter.id) %></th>	     
 		<th><%= link_to 'MSG', callcenter_callcenter_msgs_path(@callcenter.id) %></th>	  
@@ -18,9 +18,12 @@
 		<td><div id="callcenter_msgs"><%= render :partial => @callcenter.callcenter_msgs %></div></td>    
 	</tr>
 	<tr>
-		<td><%= link_to 'Edit', edit_callcenter_path(@callcenter) %></td>
+		<td><%= "" %></td>	
 		<td><%= "" %></td>		
-		<td><%= link_to 'Back', callcenters_path %></td>		
+		<td><%= "" %></td>		
+		<td><%= "" %></td>		
+		<td><%= "" %></td>		
+		<td><%= link_to 'Home', callcenters_path %></td>
 	</tr>
 </table>
 
