@@ -1,5 +1,7 @@
 <p id="notice"><%= notice %></p>
 
+<h5>Edit Call Center</h5>
+
 <table border="0" cellspacing="5" cellpadding="5">
 	<tr>
 		<th>Name</th>
@@ -19,12 +21,12 @@
 	</tr>
 	<tr>
 		<td><%= link_to 'Back', callcenters_path %></td>	
-		<td><%= "" %></td>	
-		<td><%=link_to 'Edit', edit_callcenter_path(@callcenter) %></td>				
+		<td><%= "" %></td>			
 		<td><%= "" %></td>	
 	    <td><%= "" %></td>			
 <!--	<td><%= link_to 'Delete', @callcenter, method: :delete, data: { confirm: 'Are you sure?' } %></td>	-->
-		<td></td>
+	    <td><%= "" %></td>	
+		<td><%=link_to 'Edit', edit_callcenter_path(@callcenter) %></td>		
 	</tr>
 </table>
 
@@ -45,7 +47,7 @@
 		<td>
 			<%= form_for [@callcenter, CallcenterMsg.new], :remote => true do |f| %>
                 <%= f.collection_select :msg_code, Msg.all, :code, :code %>
-                 <%= f.submit "Add MSG" %>
+                <%= f.submit "Add MSG" %>
             <% end %>
         </td>  	
 	</tr>
