@@ -2,7 +2,7 @@ class CallcentersController < ApplicationController
   # GET /callcenters
   # GET /callcenters.json
   def index
-    @callcenters = Callcenter.all
+    @callcenters = Callcenter.order('name ASC')
 
     respond_to do |format|
       format.html # index.html.erb
