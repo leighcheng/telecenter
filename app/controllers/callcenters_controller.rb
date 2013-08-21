@@ -35,6 +35,11 @@ class CallcentersController < ApplicationController
   # GET /callcenters/1/edit
   def edit
     @callcenter = Callcenter.find(params[:id])
+    
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @callcenter }
+    end    
   end
 
   # POST /callcenters

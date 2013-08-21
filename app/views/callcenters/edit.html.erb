@@ -1,7 +1,52 @@
-<h5>Editing call center</h5>
+<p id="notice"><%= notice %></p>
 
-<%= render 'form' %>
+<table border="0" cellspacing="5" cellpadding="5">
+	<tr>
+		<th>Name</th>
+		<th>Priority</th>
+		<th>Networked</th>		
+		<th><%= link_to 'DN', callcenter_outsidenumbers_path(@callcenter.id) %></th>	
+		<th><%= link_to 'CDN', callcenter_cdns_path(@callcenter.id) %></th>	     
+		<th><%= link_to 'MSG', callcenter_callcenter_msgs_path(@callcenter.id) %></th>	  
+	</tr>
+	<tr>
+		<td><%= @callcenter.name %></td>
+		<td><%= @callcenter.priority %></td>		
+		<td><%= @callcenter.networked %></td>	
+		<td><div id="outsidenumbers"><%= render :partial => @callcenter.outsidenumbers %></div</td>	
+		<td><div id="cdns"><%= render :partial => @callcenter.cdns %></div></td>   
+		<td><div id="callcenter_msgs"><%= render :partial => @callcenter.callcenter_msgs %></div></td>    
+	</tr>
+	<tr>
+		<td><%= link_to 'Home', callcenters_path %></td>	
+		<td><%= "" %></td>	
+		<td><%=link_to 'Edit', edit_callcenter_path(@callcenter) %></td>				
+		<td><%= "" %></td>			
+		<td><%= link_to 'Delete', @callcenter, method: :delete, data: { confirm: 'Are you sure?' } %></td>	
+		<td></td>
+	</tr>
+</table>
 
+<table border="0" cellspacing="5" cellpadding="5">
+	<tr>
+	 <td>
+	 	<%= form_for [@callcenter, Outsidenumber.new], :remote => true do |f| %>
+                <%= f.text_field :dn %>
+                <%= f.submit "Add DN" %>
+         <% end %>
+        </td>
+		<td>
+			<%= form_for [@callcenter, Cdn.new], :remote => true do |f| %>
+                <%= f.text_field :extension %>
+                 <%= f.submit "Add CDN" %>
+            <% end %>
+        </td>  
+		<td>
+			<%= form_for [@callcenter, CallcenterMsg.new], :remote => true do |f| %>
+                <%= f.collection_select :msg_code, Msg.all, :code, :code %>
+                 <%= f.submit "Add MSG" %>
+            <% end %>
+        </td>  	
+	</tr>
+</table>
 
-<%= link_to 'Home', callcenters_path %> |
-<%= link_to 'Detail', @callcenter %> 
