@@ -1,5 +1,5 @@
 <%= div_for outsidenumber do %>
 
-  <%= outsidenumber.dn %>
+  <%= outsidenumber.dn %><%= link_to ' Del', outsidenumber, method: :delete, :remote => true, :class => 'delete_outsidenumber', data: { confirm: 'Are you sure?' } %>
 
 <% end %>

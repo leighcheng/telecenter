@@ -7,9 +7,9 @@
 		<th>Name</th>
 		<th>Priority</th>
 		<th>Networked</th>		
-		<th><%= link_to 'DN', callcenter_outsidenumbers_path(@callcenter.id) %></th>	
-		<th><%= link_to 'CDN', callcenter_cdns_path(@callcenter.id) %></th>	     
-		<th><%= link_to 'MSG', callcenter_callcenter_msgs_path(@callcenter.id) %></th>	  
+		<th>DN</th>	
+		<th>CDN</th>	     
+		<th>MSG</th>	  
 	</tr>
 	<tr>
 		<td><%= @callcenter.name %></td>
@@ -20,12 +20,11 @@
 		<td><div id="callcenter_msgs"><%= render :partial => @callcenter.callcenter_msgs %></div></td>    
 	</tr>
 	<tr>
-		<td><%= link_to 'Back', callcenters_path %></td>	
-		<td><%= "" %></td>			
-		<td><%= "" %></td>	
-	    <td><%= "" %></td>			
-<!--	<td><%= link_to 'Delete', @callcenter, method: :delete, data: { confirm: 'Are you sure?' } %></td>	-->
-	    <td><%= "" %></td>	
+		<td><%= link_to 'Back', @callcenter %></td>	
+	    <td></td>	
+	    <td></td>	
+	    <td></td>	
+	    <td></td>	
 		<td><%=link_to 'Edit', edit_callcenter_path(@callcenter) %></td>		
 	</tr>
 </table>

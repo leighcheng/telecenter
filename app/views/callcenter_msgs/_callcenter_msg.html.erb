@@ -1,5 +1,5 @@
 <%= div_for callcenter_msg do %>
 
-  <%= callcenter_msg.msg_code %>
+  <%= callcenter_msg.msg_code %><%= link_to ' Del', callcenter_msg, method: :delete, :remote => true, :class => 'delete_callcenter_msg', data: { confirm: 'Are you sure?' } %>
 
 <% end %>
