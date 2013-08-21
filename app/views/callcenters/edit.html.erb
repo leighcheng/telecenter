@@ -19,12 +19,12 @@
 		<td><%= f.check_box :networked %></td>	
 	
 		<td><div id="outsidenumbers"><%= render :partial => @callcenter.outsidenumbers %></div</td>	
-		<td><div id="cdns"><%= render :partial => @callcenter.cdns %></div></td>   
+		<td><div id="cdns"><%= render :partial => @callcenter.cdns  %></div></td>   
 		<td><div id="callcenter_msgs"><%= render :partial => @callcenter.callcenter_msgs %></div></td>    
 	</tr>
 
 		<tr>
-		<td><%= f.submit %></td>	
+		<td><%= f.submit "Apply" %></td>	
 	    <td></td>	
 	    <td></td>	
 <% end %>	
@@ -53,7 +53,7 @@
 	    <td></td>	
 	    <td></td>	
 	    <td></td>	
-		<td><%=link_to 'Edit', edit_callcenter_path(@callcenter) %></td>		
+		<td></td>		
 	</tr>
 </table>
 
