@@ -1,5 +1,8 @@
 <%= div_for cdn do %>
-
-  <%= cdn.extension %><%= link_to ' Del', cdn, method: :delete, :remote => true, :class => 'delete_cdn', data: { confirm: 'Are you sure?' } %>
+   <% if caller == 'show' %>  
+       <%= cdn.extension %>
+  <% else %>
+  <%= cdn.extension %><%= link_to ' Del', cdn, method: :delete,:remote => true, :class => 'delete_cdn', data: { confirm: 'Are you sure?' } %>   
+   <% end %>
 
 <% end %>
