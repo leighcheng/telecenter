@@ -18,7 +18,7 @@
 		<td><%= f.number_field :priority, :in => 1..6 %></td>		
 		<td><%= f.check_box :networked %></td>	
 	
-		<td><div id="outsidenumbers"><%= render :partial => @callcenter.outsidenumbers, :locals => {:show_only => false} %></div</td>	
+		<td><div id="outsidenumbers"><%= render :partial => @callcenter.outsidenumbers.order("dn desc"), :locals => {:show_only => false} %></div</td>	
 		<td><div id="cdns"><%= render :partial => @callcenter.cdns , :locals => {:show_only => false} %></div></td>   
 		<td><div id="callcenter_msgs"><%= render :partial => @callcenter.callcenter_msgs, :locals => {:show_only => false} %></div></td>    
 	</tr>

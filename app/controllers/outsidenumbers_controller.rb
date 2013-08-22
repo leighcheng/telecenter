@@ -1,7 +1,7 @@
 class OutsidenumbersController < ApplicationController
 	
   def index
-    @outsidenumbers = Outsidenumber.where("callcenter_id = ?", params[:callcenter_id]).order("dn DES")
+    @outsidenumbers = Outsidenumber.where("callcenter_id = ?", params[:callcenter_id]).order("dn desc")
 
     respond_to do |format|
       format.html # index.html.erb
