@@ -1,2 +1,2 @@
-$('#outsidenumbers').append('<%= escape_javascript(render :partial => @outsidenumber) %>');
+$('#outsidenumbers').append('<%= escape_javascript(render :partial => @outsidenumber,  :locals => {:show_only => false}) %>');
 $('#outsidenumber_dn').val('')

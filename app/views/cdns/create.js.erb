@@ -1,2 +1,2 @@
-$('#cdns').append('<%= escape_javascript(render :partial => @cdn) %>');
+$('#cdns').append('<%= escape_javascript(render :partial => @cdn,  :locals => {:show_only => false}) %>');
 $('#cdn_extension').val('')

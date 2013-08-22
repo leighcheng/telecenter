@@ -1,2 +1,2 @@
-$('#callcenter_msgs').append('<%= escape_javascript(render :partial => @callcenter_msg) %>');
+$('#callcenter_msgs').append('<%= escape_javascript(render :partial => @callcenter_msg,  :locals => {:show_only => false}) %>');
 $('#callcenter_msg_msg_code').val('')
