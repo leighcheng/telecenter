@@ -15,9 +15,9 @@
 		<td><%= @callcenter.name %></td>
 		<td><%= @callcenter.priority %></td>		
 		<td><%= @callcenter.networked %></td>	
-		<td><div id="outsidenumbers"><%= render :partial => @callcenter.outsidenumbers, :locals => {:caller => 'show'}  %></div</td>	
-		<td><div id="cdns"><%= render :partial => @callcenter.cdns, :locals => {:caller => 'show'} %></div></td>   
-		<td><div id="callcenter_msgs"><%= render :partial => @callcenter.callcenter_msgs, :locals => {:caller => 'show'}  %></div></td>    
+		<td><div id="outsidenumbers"><%= render :partial => @callcenter.outsidenumbers, :locals => {:called_for => 'show'}  %></div</td>	
+		<td><div id="cdns"><%= render :partial => @callcenter.cdns, :locals => {:called_for => 'show'} %></div></td>   
+		<td><div id="callcenter_msgs"><%= render :partial => @callcenter.callcenter_msgs, :locals => {:called_for => 'show'}  %></div></td>    
 	</tr>
 	<tr>
 		<td><%= link_to 'Back', callcenters_path %></td>	
