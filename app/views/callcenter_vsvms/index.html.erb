@@ -1,0 +1,18 @@
+<h5>Listing Vendor Services and Voicemails</h5>
+
+<table>
+  <tr>
+    <th>VSVM</th>
+    <th></th>
+  </tr>
+
+<% @callcenter_vsvms.each do |callcenter_vsvm| %>
+  <tr>
+    <td><%= callcenter_vsvm.dn %></td>
+    <td><%= link_to 'Delete', callcenter_vsvm, method: :delete, :remote => true, :class => 'delete_callcenter_vsvm', data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+

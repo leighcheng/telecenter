@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @vsvm.name %>
+</p>
+
+<p>
+  <b>Dn:</b>
+  <%= @vsvm.dn %>
+</p>
+
+
+<%= link_to 'Edit', edit_vsvm_path(@vsvm) %> |
+<%= link_to 'Back', vsvms_path %>

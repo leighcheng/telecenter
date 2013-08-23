@@ -5,4 +5,5 @@ class Callcenter < ActiveRecord::Base
   has_many :outsidenumbers, :dependent => :delete_all
   has_many :cdns, :dependent => :delete_all  
   has_many :callcenter_msgs, :dependent => :delete_all
+  has_many :callcenter_vsvms, :dependent => :delete_all
 end

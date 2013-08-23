@@ -10,7 +10,8 @@
 		<th>Priority</th>
 		<th>Networked</th>		
 		<th>DN</th>	
-		<th>CDN</th>	     
+		<th>CDN</th>	
+		<th>VSVM</th>	     
 		<th>MSG</th>	  
 	</tr>
 	<tr>
@@ -19,7 +20,8 @@
 		<td><%= f.check_box :networked %></td>	
 	
 		<td><div id="outsidenumbers"><%= render :partial => @callcenter.outsidenumbers.order("dn desc"), :locals => {:show_only => false} %></div</td>	
-		<td><div id="cdns"><%= render :partial => @callcenter.cdns , :locals => {:show_only => false} %></div></td>   
+		<td><div id="cdns"><%= render :partial => @callcenter.cdns , :locals => {:show_only => false} %></div></td> 
+		<td><div id="callcenter_vsvms"><%= render :partial => @callcenter.callcenter_vsvms, :locals => {:show_only => false} %></div></td>  		  
 		<td><div id="callcenter_msgs"><%= render :partial => @callcenter.callcenter_msgs, :locals => {:show_only => false} %></div></td>    
 	</tr>
 
@@ -39,7 +41,13 @@
                 <%= f.text_field :extension %>
                  <%= f.submit "Add CDN" %>
             <% end %>
-        </td>	
+        </td>
+        <td>			
+			<%= form_for [@callcenter, CallcenterVsvm.new], :remote => true do |f| %>
+                <%= f.collection_select :dn, Vsvm.all, :dn, :dn %>
+                <%= f.submit "Add VSVM" %>
+            <% end %>        
+        </td>		
 		<td>			
 			<%= form_for [@callcenter, CallcenterMsg.new], :remote => true do |f| %>
                 <%= f.collection_select :msg_code, Msg.all, :code, :code %>
@@ -53,7 +61,8 @@
 	    <td></td>	
 	    <td></td>	
 	    <td></td>	
-		<td></td>		
+		<td></td>	
+		<td></td>				
 	</tr>
 </table>
 

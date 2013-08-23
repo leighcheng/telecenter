@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130820060733) do
+ActiveRecord::Schema.define(:version => 20130823170222) do
 
   create_table "callcenter_msgs", :force => true do |t|
     t.integer  "callcenter_id"
@@ -21,6 +21,15 @@ ActiveRecord::Schema.define(:version => 20130820060733) do
   end
 
   add_index "callcenter_msgs", ["callcenter_id"], :name => "index_callcenter_msgs_on_callcenter_id"
+
+  create_table "callcenter_vsvms", :force => true do |t|
+    t.integer  "callcenter_id"
+    t.string   "dn"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  add_index "callcenter_vsvms", ["callcenter_id"], :name => "index_callcenter_vsvms_on_callcenter_id"
 
   create_table "callcenters", :force => true do |t|
     t.string   "name"
@@ -54,5 +63,12 @@ ActiveRecord::Schema.define(:version => 20130820060733) do
   end
 
   add_index "outsidenumbers", ["callcenter_id"], :name => "index_outsidenumbers_on_callcenter_id"
+
+  create_table "vsvms", :force => true do |t|
+    t.string   "name"
+    t.string   "dn"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
 end

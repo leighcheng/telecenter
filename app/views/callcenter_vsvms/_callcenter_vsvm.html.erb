@@ -1,0 +1,7 @@
+<%= div_for callcenter_vsvm do %>
+    <% if show_only %>    
+       <%= callcenter_vsvm.dn %>
+    <% else %>
+      <%= callcenter_vsvm.dn %><%= link_to ' Del', callcenter_vsvm, method: :delete, :remote => true, :class => 'delete_callcenter_vsvm', data: { confirm: 'Are you sure?' } %>
+    <% end %>
+<% end %>
