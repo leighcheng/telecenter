@@ -29,7 +29,7 @@ class CallcenterVsvmsController < ApplicationController
      
     rescue ActiveRecord::RecordInvalid
   	  if not params[:callcenter_msg]["dn"] == ""
-	  	  if not params[:callcenter_msg]["dn"].match /^\d{1,3}-\d{1,2}$/
+	  	  if not params[:callcenter_msg]["dn"].match /^\d{4}$|^\d{3}-\d{3}-\d{4}$/
 	  	    flash[:notice] = params[:callcenter_vsvm]["dn"] + ' is not correct format!'  
 	  	    format.js { render :js=>'alert("bad format");' }	  	
 	  	  end
