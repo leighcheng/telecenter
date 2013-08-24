@@ -1,7 +1,7 @@
 <%= div_for callcenter_vsvm do %>
     <% if show_only %>    
-       <%= Vsvm.where("id = ?", callcenter_vsvm.vsvm_id).select(:dn).first %>
+       <%= Vsvm.where("id = ?", callcenter_vsvm.vsvm_id).first[:dn] %>
     <% else %>
-      <%= Vsvm.where("id = ?", callcenter_vsvm.vsvm_id).select(:dn).first %><%= link_to ' Del', callcenter_vsvm, method: :delete, :remote => true, :class => 'delete_callcenter_vsvm', data: { confirm: 'Are you sure?' } %>
+      <%= Vsvm.where("id = ?", callcenter_vsvm.vsvm_id).first[:dn] %><%= link_to ' Del', callcenter_vsvm, method: :delete, :remote => true, :class => 'delete_callcenter_vsvm', data: { confirm: 'Are you sure?' } %>
     <% end %>
 <% end %>
