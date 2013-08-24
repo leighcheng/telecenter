@@ -1,7 +1,7 @@
 <%= div_for callcenter_msg do %>
     <% if show_only %>    
-       <%= callcenter_msg.msg_code %>
+       <%= Msg.where("id = ?", callcenter_msg.msg_id).select('code') %> 
     <% else %>
-      <%= callcenter_msg.msg_code %><%= link_to ' Del', callcenter_msg, method: :delete, :remote => true, :class => 'delete_callcenter_msg', data: { confirm: 'Are you sure?' } %>
+      <%= Msg.where("id = ?", callcenter_msg.msg_id).select('code') %> <%= link_to ' Del', callcenter_msg, method: :delete, :remote => true, :class => 'delete_callcenter_msg', data: { confirm: 'Are you sure?' } %>
     <% end %>
 <% end %>

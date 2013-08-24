@@ -67,7 +67,7 @@ ActiveRecord::Schema.define(:version => 20130823204649) do
   add_index "outsidenumbers", ["callcenter_id"], :name => "index_outsidenumbers_on_callcenter_id"
 
   create_table "vsvms", :force => true do |t|
-    t.string   "code"
+    t.string   "name"
     t.string   "dn"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false

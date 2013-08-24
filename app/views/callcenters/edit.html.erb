@@ -44,13 +44,13 @@
         </td>
         <td>			
 			<%= form_for [@callcenter, CallcenterVsvm.new], :remote => true do |f| %>
-                <%= f.collection_select :dn, Vsvm.all, :dn, :dn %>
+                <%= f.collection_select :vsvm_id, Vsvm.all, :id, :dn %>
                 <%= f.submit "Add VSVM" %>
             <% end %>        
         </td>		
 		<td>			
 			<%= form_for [@callcenter, CallcenterMsg.new], :remote => true do |f| %>
-                <%= f.collection_select :msg_code, Msg.all, :code, :code %>
+                <%= f.collection_select :msg_id, Msg.all, :id, :code %>
                 <%= f.submit "Add MSG" %>
             <% end %>        
         </td>		
