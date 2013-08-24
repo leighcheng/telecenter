@@ -28,13 +28,8 @@ class CallcenterMsgsController < ApplicationController
     end
      
     rescue ActiveRecord::RecordInvalid
-  	  if not params[:callcenter_msg]["msg_code"] == ""
-	  	  if not params[:callcenter_msg]["msg_code"].match /^\d{1,3}-\d{1,2}$/
-	  	    flash[:notice] = params[:callcenter_msg]["extension"] + ' is not correct format!'  
-	  	    format.js { render :js=>'alert("bad format");' }	  	
-	  	  end
-  	  end
-      redirect_to @callcenter 
-      
+	   flash[:notice] = Msg.where("id = ?",  params[:callcenter_msg]["msg_id"])[:code] + ' is taken!' 
+	   format.js { render :js=>'alert("Duplicate entry");' }
+       redirect_to @callcenter  
     end
 end

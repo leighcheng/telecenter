@@ -28,13 +28,8 @@ class CallcenterVsvmsController < ApplicationController
     end
      
     rescue ActiveRecord::RecordInvalid
-  	  if not params[:callcenter_msg]["dn"] == ""
-	  	  if not params[:callcenter_msg]["dn"].match /^\d{4}$|^\d{3}-\d{3}-\d{4}$/
-	  	    flash[:notice] = params[:callcenter_vsvm]["dn"] + ' is not correct format!'  
-	  	    format.js { render :js=>'alert("bad format");' }	  	
-	  	  end
-  	  end
-      redirect_to @callcenter 
-      
+	   flash[:notice] = Vsvm.where("id = ?",  params[:callcenter_vsvm]["vsvm_id"])[:dn] + ' is taken!' 
+	   format.js { render :js=>'alert("Duplicate entry");' }
+       redirect_to @callcenter        
     end
 end
