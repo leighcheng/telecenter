@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130904212310) do
+ActiveRecord::Schema.define(:version => 20130904213933) do
 
   create_table "callcenter_msgs", :force => true do |t|
     t.integer  "callcenter_id"
@@ -37,8 +37,9 @@ ActiveRecord::Schema.define(:version => 20130904212310) do
     t.string   "name"
     t.integer  "priority"
     t.boolean  "networked"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.string   "office_hour"
   end
 
   create_table "cdns", :force => true do |t|
