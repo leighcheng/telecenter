@@ -3,16 +3,12 @@
 <table>
   <tr>
     <th>Name</th>
-    <th>Priority</th>
-    <th>Networked</th>
     <th></th>
   </tr>
 
 <% @callcenters.each do |callcenter| %>
   <tr>
     <td><%= callcenter.name %></td>
-    <td><%= callcenter.priority %></td>
-    <td><%= callcenter.networked %></td>
     <td><%= link_to 'Detail', callcenter %></td>    
   </tr>
 <% end %>
