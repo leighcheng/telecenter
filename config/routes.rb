@@ -13,6 +13,7 @@ Telecenter::Application.routes.draw do
   resources :callcenter_vsvms
   resources :vsvms
   resources :msgs
+  resources :officehours
       
   root :to => 'callcenters#index'
   match 'about/index'  
