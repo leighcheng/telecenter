@@ -6,6 +6,7 @@
 	<tr>
 		<th>Name</th>
 		<th>Priority</th>
+		<th>Hours</th>
 		<th>Networked</th>		
 		<th>DN</th>	
 		<th>CDN</th>	
@@ -15,6 +16,7 @@
 	<tr>
 		<td><%= @callcenter.name %></td>
 		<td><%= @callcenter.priority %></td>		
+		<td><%= @callcenter.office_hour %></td>			
 		<td><%= @callcenter.networked %></td>	
 		<td><div id="outsidenumbers"><%= render :partial => @callcenter.outsidenumbers.order("dn desc"), :locals => {:show_only => true}  %></div</td>	
 		<td><div id="cdns"><%= render :partial => @callcenter.cdns, :locals => {:show_only => true}  %></div></td>   

@@ -8,6 +8,7 @@
 	<tr>
 		<th>Name</th>
 		<th>Priority</th>
+		<th>Hours</th>	  		
 		<th>Networked</th>		
 		<th>DN</th>	
 		<th>CDN</th>	
@@ -17,6 +18,7 @@
 	<tr>
 		<td><%= f.text_field :name %></td>
 		<td><%= f.number_field :priority, :in => 1..6 %></td>		
+		<td><%= f.collection_select :office_hour, Officehour.all, :name, :name %></td>
 		<td><%= f.check_box :networked %></td>	
 	
 		<td><div id="outsidenumbers"><%= render :partial => @callcenter.outsidenumbers.order("dn desc"), :locals => {:show_only => false} %></div</td>	
