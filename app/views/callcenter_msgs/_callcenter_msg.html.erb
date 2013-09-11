@@ -1,5 +1,5 @@
 <%= div_for callcenter_msg do %>
-    <% if show_only and not callcenter_msg.msg_id.nil? %>    
+    <% if show_only  %>    
        <%= link_to Msg.where("id = ?", callcenter_msg.msg_id).first[:code], msg_path(callcenter_msg.msg_id),  :onclick=>"window.open(this.href,'popup test', 'height=600, width=600');return false;" %> 
     <% else %>
        <%= Msg.where("id = ?", callcenter_msg.msg_id).first[:code] %> <%= link_to ' Del', callcenter_msg, method: :delete, :remote => true, :class => 'delete_callcenter_msg', data: { confirm: 'Are you sure?' } %>
