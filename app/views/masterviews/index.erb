@@ -1,0 +1,39 @@
+
+<script type="text/javascript">           
+	$(document).ready(function() {
+		$("#search").keydown(function(event) {
+			// Allow only backspace and delete
+			if ( 
+				event.keyCode >= 48 && event.keyCode <= 57 || 
+				event.keyCode >= 65 && event.keyCode <= 90 || 
+				event.keyCode >= 96 && event.keyCode <= 105 ||
+				event.keyCode == 8 || 
+				event.keyCode == 32 || 
+				event.keyCode == 35 || 
+				event.keyCode == 36 || 						
+				event.keyCode == 37 || 
+				event.keyCode == 39 ||
+				event.keyCode == 46 ||		
+				event.keyCode == 109 ||	
+				event.keyCode == 189 ||																	
+				event.keyCode == 222				
+			) 
+			{
+	    			// let it happen, don't do anything
+			}
+			else {
+	            event.preventDefault();  
+			}
+		});
+	});
+</script>	
+
+<%= form_tag masterviews_path, :method => 'get', :id => "masterviews_search" do %>
+
+    <p>
+      <b>Search</b> <%= text_field_tag :search, params[:search] %> 
+    </p>  
+    <div id="masterviews"><%= render 'masterviews' %></div>  
+
+<% end %>            
+
