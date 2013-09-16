@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require foundation
+//=require jqmasterview
 //= require_tree .
 
 $(document).foundation();
