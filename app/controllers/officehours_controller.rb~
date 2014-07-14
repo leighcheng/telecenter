@@ -44,11 +44,11 @@ class OfficehoursController < ApplicationController
 
     respond_to do |format|
       if @officehour.save
-	format.html { redirect_to @officehour, notice: 'Officehour was successfully created.' }
-	format.json { render json: @officehour, status: :created, location: @officehour }
+        format.html { redirect_to @officehour, notice: 'Officehour was successfully created.' }
+        format.json { render json: @officehour, status: :created, location: @officehour }
       else
-	format.html { render action: "new" }
-	format.json { render json: @officehour.errors, status: :unprocessable_entity }
+        format.html { render action: "new" }
+        format.json { render json: @officehour.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -60,11 +60,11 @@ class OfficehoursController < ApplicationController
 
     respond_to do |format|
       if @officehour.update_attributes(params[:officehour])
-	format.html { redirect_to @officehour, notice: 'Officehour was successfully updated.' }
-	format.json { head :no_content }
+        format.html { redirect_to @officehour, notice: 'Officehour was successfully updated.' }
+        format.json { head :no_content }
       else
-	format.html { render action: "edit" }
-	format.json { render json: @officehour.errors, status: :unprocessable_entity }
+        format.html { render action: "edit" }
+        format.json { render json: @officehour.errors, status: :unprocessable_entity }
       end
     end
   end
